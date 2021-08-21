@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { StopService } from '../../services/stop.service'
 import {Stop} from '../../Stop';
-import { STOPS } from "../../mock-stops";
+
 
 @Component({
   selector: 'app-stops',
@@ -8,11 +9,20 @@ import { STOPS } from "../../mock-stops";
   styleUrls: ['./stops.component.css']
 })
 export class StopsComponent implements OnInit {
-  stops: Stop[] = STOPS;
+  stops: Stop[] = [];
 
-  constructor() { }
+  constructor(private stopService: StopService) { }
 
   ngOnInit(): void {
+    this.stopService.getStops().subscribe((stops) => (this.stops = stops))
   }
 
+  deleteStop(stop: Stop) {
+    this.stopService.deleteStop(stop).subscribe(() => (this.stops = this.stops.filter(s => s.id ! !== stop.id)))
+  }
+
+  toggleReminder(stop: Stop) {
+    stop.reminder = !stop.reminder;
+    this.stopService.updateStopReminder(stop).subscribe();
+  }
 }

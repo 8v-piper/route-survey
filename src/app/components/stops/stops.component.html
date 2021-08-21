@@ -1,1 +1,7 @@
-<app-stop-item *ngFor="let stop of stops" [stop]="stop"></app-stop-item>
+<app-add-stop></app-add-stop>
+<app-stop-item 
+    *ngFor="let stop of stops" 
+    [stop]="stop"
+    (onDeleteStop)="deleteStop(stop)"
+    (onToggleReminder)="toggleReminder(stop)"
+></app-stop-item>

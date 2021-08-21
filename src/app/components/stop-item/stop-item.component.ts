@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Stop } from '../../Stop';
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
@@ -9,6 +9,9 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 })
 export class StopItemComponent implements OnInit {
   @Input()  stop!: Stop;
+  @Output() onDeleteStop: EventEmitter<Stop> = new EventEmitter();
+  @Output() onToggleReminder: EventEmitter<Stop> = new EventEmitter();
+  
   faTimes = faTimes;
   
   constructor() { }
@@ -16,4 +19,10 @@ export class StopItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onDelete(stop: any) {
+    this.onDeleteStop.emit(stop)
+  }
+  onToggle(stop: any) {
+    this.onToggleReminder.emit(stop)
+  }
 }
