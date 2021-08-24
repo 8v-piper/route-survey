@@ -17,6 +17,18 @@
       "text": "Meeting at School",
       "day": "May 6th at 2:30pm",
       "reminder": false
+    },
+    {
+      "text": "nana sita",
+      "day": "28 may",
+      "reminder": true,
+      "id": 4
+    },
+    {
+      "text": "test",
+      "day": "test",
+      "reminder": false,
+      "id": 5
     }
   ]
 }

@@ -14,15 +14,18 @@ export class StopsComponent implements OnInit {
   constructor(private stopService: StopService) { }
 
   ngOnInit(): void {
-    this.stopService.getStops().subscribe((stops) => (this.stops = stops))
+    this.stopService.getStops().subscribe((stops) => (this.stops = stops));
   }
 
   deleteStop(stop: Stop) {
-    this.stopService.deleteStop(stop).subscribe(() => (this.stops = this.stops.filter(s => s.id ! !== stop.id)))
+    this.stopService.deleteStop(stop).subscribe(() => (this.stops = this.stops.filter(s => s.id ! !== stop.id)));
   }
 
   toggleReminder(stop: Stop) {
     stop.reminder = !stop.reminder;
     this.stopService.updateStopReminder(stop).subscribe();
+  }
+  addStop(stop: Stop) {
+    this.stopService.addStop(stop).subscribe((stop) => (this.stops.push(stop)));
   }
 }

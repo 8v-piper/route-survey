@@ -1,4 +1,4 @@
-<app-add-stop></app-add-stop>
+<app-add-stop (onAddStop)="addStop($event)" ></app-add-stop>
 <app-stop-item 
     *ngFor="let stop of stops" 
     [stop]="stop"

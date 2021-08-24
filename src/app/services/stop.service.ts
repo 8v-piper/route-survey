@@ -28,4 +28,7 @@ export class StopService {
     const url = `${this.apiUrl}/${stop.id}`;
     return this.http.put<Stop>(url, stop, httpOptions)
   }
+  addStop(stop: Stop):Observable<Stop> {
+    return this.http.post<Stop>(this.apiUrl, stop, httpOptions);
+  }
 }

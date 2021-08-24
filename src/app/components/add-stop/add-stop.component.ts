@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Stop } from '../../Stop';
+import { Subscription } from 'rxjs';
+import { UiService } from '../../services/ui.service';
 
 @Component({
   selector: 'app-add-stop',
@@ -6,11 +9,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-stop.component.css']
 })
 export class AddStopComponent implements OnInit {
-  text: string | undefined;
-  day: string | undefined;
-  reminder: boolean = false;
+  @Output() onAddStop: EventEmitter<Stop> = new EventEmitter();
 
-  constructor() { }
+  text!: string;
+  day!: string;
+  reminder: boolean = false;
+  showAddStop: boolean = false;
+  subscription: Subscription;
+
+  constructor(private uiService: UiService) { 
+    this.subscription = this.uiService
+    .onToggle()
+    .subscribe((value) => (this.showAddStop = value));
+  }
 
   ngOnInit(): void {
   }
@@ -27,6 +38,7 @@ export class AddStopComponent implements OnInit {
       reminder: this.reminder
     }
 
+    this.onAddStop.emit(newStop);
 
     this.text = '';
     this.day = '';
