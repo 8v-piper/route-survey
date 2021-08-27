@@ -11,8 +11,11 @@ import { UiService } from '../../services/ui.service';
 export class AddStopComponent implements OnInit {
   @Output() onAddStop: EventEmitter<Stop> = new EventEmitter();
 
+  stopId!: number;
   text!: string;
-  day!: string;
+  latt!: string;
+  long!: string;
+  direction!: string;
   reminder: boolean = false;
   showAddStop: boolean = false;
   subscription: Subscription;
@@ -33,15 +36,21 @@ export class AddStopComponent implements OnInit {
     }
 
     const newStop = {
+      stopId: this.stopId,
       text: this.text,
-      day: this.day,
+      latt: this.latt,
+      long: this.long,
+      direction: this.direction,
       reminder: this.reminder
     }
 
     this.onAddStop.emit(newStop);
 
+    this.stopId = 0;
     this.text = '';
-    this.day = '';
+    this.latt = '';
+    this.long = '';
+    this.direction = '';
     this.reminder = false;
   }
 

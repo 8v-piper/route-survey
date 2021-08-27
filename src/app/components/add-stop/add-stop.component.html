@@ -1,11 +1,23 @@
 <form *ngIf="showAddStop" class="add-form" (ngSubmit)="onSubmit()">
     <div class="form-control">
-        <label for="text">Stop</label>
-        <input type="text" name="text" [(ngModel)]= "text" id="text" placeholder="Add Stop"/>
+        <label for="stopId">Stop ID.</label>
+        <input type="number" name="stopId" [(ngModel)]="stopId" id="stopId" placeholder="Add the stop identification number"/>
     </div>
     <div class="form-control">
-        <label for="day">Day & Time</label>
-        <input type="text" name="day" [(ngModel)]= "day" id="day" placeholder="Add Day & Time"/>
+        <label for="text">Stop Name</label>
+        <input type="text" name="text" [(ngModel)]= "text" id="text" placeholder="Add Stop Name"/>
+    </div>
+    <div class="form-control">
+        <label for="latt">Lattitude</label>
+        <input type="text" name="latt" [(ngModel)]= "latt" id="latt" placeholder="awaiting co-ordinate"/>
+    </div>
+    <div class="form-control">
+        <label for="long">Longitude</label>
+        <input type="text" name="long" [(ngModel)]= "long" id="long" placeholder="awaiting co-ordinate"/>
+    </div>
+    <div class="form-control">
+        <label for="direction">Longitude</label>
+        <input type="text" name="direction" [(ngModel)]= "direction" id="direction" placeholder="---"/>
     </div>
     <div class="form-control form-control-check">
         <label for="reminder">Set Reminder</label>

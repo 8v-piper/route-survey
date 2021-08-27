@@ -29,6 +29,15 @@
       "day": "test",
       "reminder": false,
       "id": 5
+    },
+    {
+      "stopId": 12,
+      "text": "test",
+      "latt": "test",
+      "long": "test",
+      "direction": "nw",
+      "reminder": false,
+      "id": 6
     }
   ]
 }

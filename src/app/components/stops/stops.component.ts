@@ -18,7 +18,7 @@ export class StopsComponent implements OnInit {
   }
 
   deleteStop(stop: Stop) {
-    this.stopService.deleteStop(stop).subscribe(() => (this.stops = this.stops.filter(s => s.id ! !== stop.id)));
+    this.stopService.deleteStop(stop).subscribe(() => (this.stops = this.stops.filter(s => s.stopId ! !== stop.stopId)));
   }
 
   toggleReminder(stop: Stop) {

@@ -1,6 +1,8 @@
 export interface Stop {
-    id?: number;
+    stopId: number;
     text: string;
-    day: string;
-    reminder: boolean;
+    latt: string;
+    long: string;
+    direction: string;
+    reminder: boolean
   }

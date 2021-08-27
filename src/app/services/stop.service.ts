@@ -20,12 +20,12 @@ export class StopService {
   }
 
   deleteStop(stop: Stop): Observable<Stop> {
-    const url = `${this.apiUrl}/${stop.id}`;
+    const url = `${this.apiUrl}/${stop.stopId}`;
     return this.http.delete<Stop>(url);
   }
 
   updateStopReminder(stop: Stop): Observable<Stop> {
-    const url = `${this.apiUrl}/${stop.id}`;
+    const url = `${this.apiUrl}/${stop.stopId}`;
     return this.http.put<Stop>(url, stop, httpOptions)
   }
   addStop(stop: Stop):Observable<Stop> {
